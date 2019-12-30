@@ -11,11 +11,9 @@ export class RouteCurrency implements IRoute {
         let url = req.url || '';
         const currency = url.split('/')[2];
         if (currency) {
-            console.log('url currency USD', currency);
             const data = currencyService.getRateByCurrency(currency);
             return {[currency.toUpperCase()]: data};
         } else {
-            console.log('url no currency', currency);
             const data = currencyService.response.Valute;
             return {Valute: data};
         }
